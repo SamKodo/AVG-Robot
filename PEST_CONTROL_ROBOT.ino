@@ -6,7 +6,8 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-/*-----------------------Connection with Lcd screen************************************************/
+
+//Note to be played at startUp of the Robot
 
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -99,7 +100,6 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #define NOTE_DS8 4978
 #define REST      0
 
-
 // change this to make the song slower or faster
 int tempo = 105;
 
@@ -134,16 +134,15 @@ int melody[] = {
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
 
 // this calculates the duration of a whole note in ms
+   
 int wholenote = (60000 * 4) / tempo;
 
 int divider = 0, noteDuration = 0;
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 // Control of Motor A
 int motora_1 = 4;
 int motora_2 = 5;
-
 
 //Control of Motor B 
 int motorb_1 = 2;
@@ -152,29 +151,24 @@ int motorb_2 = 3;
 //Activating Speed Port on ENA and ENB
 int speeda = 10 ;
 int speedb = 9 ; 
-char data ;
+char data ; 
 
 // Activating WaterPump Motor for Spray
 int motorc_1 = 6 ; 
 int motorc_2 = 7 ; 
 // Reading Voltage from power divider
-int voltageV  = A0;   //it is the input pin
+int voltageV  = A0;   // it is the input pin
 
 // Storing Value to change speed of the robot
-int speedValuea =230;  
-int speedValueb =230; 
+int speedValuea = 230;  
+int speedValueb = 230; 
 
-boolean dataStatus = false ; 
-
-// Conneting Relay on the Ouptput
-
-//int relaypower = 13 ; 
-
-
+boolean dataStatus = false ; // Check data from blueooth Module
+boolean batteryStatus = false ; // Check state of the battery
 
 void setup()
- {
 
+ {
  pinMode (voltageV, INPUT);
   lcd.init();
   lcd.backlight();
