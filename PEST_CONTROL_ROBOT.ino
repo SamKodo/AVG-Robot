@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//                                                  Software control of FarmBot Created On 8/15/2024  by Sam Kodo                                      //                          
+//                                        Software control of FarmBot to upload on Arduino Uno or MEGA Created On 8/15/2024  by Sam Kodo                           //            //                          
 //                                                                                                                                                                 //
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------//
 #include <LcdBarGraphRobojax.h>  
@@ -111,7 +111,6 @@ int waterSensor = A3 ;
 int valueSensor ; 
 int calibrationValue = 500 ;  
 
-
 // notes of the moledy followed by the duration.
 // a 4 means a quarter note, 8 an eighteenth , 16 sixteenth, so on
 // !!negative numbers are used to represent dotted notes,
@@ -169,7 +168,10 @@ boolean batteryStatus = false ; // Check state of the battery
 void setup()
 
  {
- pinMode (voltageV, INPUT);
+  Wire.begin(0x08); // Establishing communication between RaspberryPi and Arduino via I²C 
+  Wire.onRequest(sendData);
+   
+ pinMode (voltageV, INPUT); // Reading voltage from Analog Pin of Arduino (A2)
   lcd.init();
   lcd.backlight();
 
