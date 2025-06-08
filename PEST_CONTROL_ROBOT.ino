@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//                                                     AGV ROBOT For Desinfaction Software Created On 8/15/2023 from scratch by Sam Kodo                           //                          
+//                                                  Software control of FarmBot Created On 8/15/2024  by Sam Kodo                                      //                          
 //                                                                                                                                                                 //
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------//
-#include <LcdBarGraphRobojax.h>
-#include <LiquidCrystal_I2C.h>
+#include <LcdBarGraphRobojax.h>  
+#include <LiquidCrystal_I2C.h>  
 #include <Wire.h>
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 16, 2);        // Attach an LCD screen to print Battery voltage in % , soil Moisture data 
 
 //Note to be played at startUp of the Robot
 
@@ -106,7 +106,7 @@ int tempo = 105;
 // change this to whichever pin you want to use
 int buzzer = 12;
 
-//Water level Detector for the sprayer
+//soil Moisture level sensor level Detector for the sprayer
 int waterSensor = A3 ; 
 int valueSensor ; 
 int calibrationValue = 500 ;  
