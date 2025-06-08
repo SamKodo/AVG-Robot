@@ -209,7 +209,7 @@ void setup()
   pinMode(motorb_2, OUTPUT);
   pinMode(waterSensor , INPUT) ; 
 
-  // Ports setup as OutPut for spray motor
+  // Ports setup as OutPut for spraying motor
   pinMode(motorc_1, OUTPUT) ;
   pinMode(motorc_2, OUTPUT) ;
 
@@ -234,7 +234,7 @@ int VoltageMsmt = analogRead(voltageV);
   float Vcalc = (5.0/1023)*VoltageMsmt;
   Vcalc = Vcalc*7.14;
   lcd.setCursor(0,0);
-  lcd.print("BATTERIE:");
+  lcd.print("BATTERY:");
   lcd.print(Vcalc);
 
 // function to protect internal voltage of batteries
@@ -243,7 +243,7 @@ if (Vcalc < 12.0 )
 {
 
 lcd.setCursor(0,1) ; 
-lcd.print("BATTERIE: ALERTE") ;
+lcd.print("BATTERY: ALERT") ;
 tone (buzzer , 500 , 1050) ; 
 delay(500) ;  
 
@@ -251,7 +251,7 @@ delay(500) ;
 
 else {
 lcd.setCursor(0,1) ; 
-lcd.print("BATTERIE: BONNE") ;
+lcd.print("BATTERIE: GOOD") ;
 
 }
 
